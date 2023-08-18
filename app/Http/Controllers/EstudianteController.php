@@ -31,6 +31,14 @@ class EstudianteController extends Controller
     {
         $estudiantes = new Estudiante();
 
+        $request->validate([
+            'matricula'=>['required','unique:estudiantes,matricula','min:10','max:10'],
+            'nombre'=>['required'],
+            'apellidopaterno'=>['required'],
+            'apellidomaterno'=>['required'],
+            'correo'=>['required','unique:estudiantes,correo','email:rfc,dns']
+        ]);
+
         $estudiantes->matricula = $request->get('matricula');
         $estudiantes->nombre = $request->get('nombre');
         $estudiantes->apellidopaterno = $request->get('apellidopaterno');

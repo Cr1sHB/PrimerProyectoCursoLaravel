@@ -5,6 +5,7 @@
 @section('contenido')
 
 <form action="/estudiantes" method="post">
+    @csrf
     <div>
         <label for="" class="form-label">Matricula</label>
         <input type="text" name="matricula" id="matricula" class="form-control">
